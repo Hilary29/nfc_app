@@ -35,15 +35,14 @@ class _ClientScreenBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               CardDisplayWidget(
-                cardId: 'CARD_12345',
-                customerId: 'CUSTOMER_001',
+                cardId: '',
+                customerId: '',
                 isActive: notifier.isHceActive,
               ),
               const SizedBox(height: 24),
               if (!notifier.isHceActive)
                 ElevatedButton.icon(
                   onPressed: () => notifier.startHceMode(),
-                  icon: const Icon(Icons.nfc, size: 32),
                   label: const Padding(
                     padding: EdgeInsets.symmetric(vertical: 16.0),
                     child: Text(
@@ -59,7 +58,6 @@ class _ClientScreenBody extends StatelessWidget {
               else
                 OutlinedButton.icon(
                   onPressed: () => notifier.stopHceMode(),
-                  icon: const Icon(Icons.stop_circle),
                   label: const Padding(
                     padding: EdgeInsets.symmetric(vertical: 16.0),
                     child: Text(
@@ -108,25 +106,10 @@ class _ClientScreenBody extends StatelessWidget {
                 ),
               if (notifier.isHceActive && !notifier.hasPendingPayment)
                 Card(
-                  color: Colors.purple.shade50,
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Column(
                       children: [
-                        Icon(
-                          Icons.contactless,
-                          size: 64,
-                          color: Colors.purple.shade300,
-                        ),
-                        const SizedBox(height: 16),
-                        Text(
-                          'Ready to Pay',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.purple.shade700,
-                          ),
-                        ),
                         const SizedBox(height: 8),
                         Text(
                           'Bring your phone close to the merchant terminal',

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../notifiers/merchant_notifier.dart';
 import '../widgets/amount_input_widget.dart';
-import '../widgets/payment_token_display.dart';
 import '../widgets/payment_status_widget.dart';
 
 class MerchantScreen extends StatelessWidget {
@@ -14,7 +13,7 @@ class MerchantScreen extends StatelessWidget {
       create: (_) => MerchantNotifier(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Merchant Payment Terminal'),
+          title: const Text('Merchant Terminal'),
           centerTitle: true,
         ),
         body: const _MerchantScreenBody(),
@@ -41,14 +40,11 @@ class _MerchantScreenBody extends StatelessWidget {
                   notifier.setAmount(amount);
                 },
               ),
-              const SizedBox(height: 16),
-              PaymentTokenDisplay(token: notifier.paymentToken),
               const SizedBox(height: 24),
               ElevatedButton.icon(
                 onPressed: notifier.canStartPayment && !notifier.isScanning
                     ? () => notifier.startPaymentSession()
                     : null,
-                icon: Icon(notifier.isScanning ? Icons.nfc : Icons.payment),
                 label: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: Text(

@@ -39,9 +39,9 @@ class CardDisplayWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Icon(
-                  Icons.contactless,
-                  color: Colors.white,
-                  size: 48,
+                  Icons.nfc,
+                  color: Colors.white70,
+                  size: 36,
                 ),
                 if (isActive)
                   Container(
@@ -71,6 +71,7 @@ class CardDisplayWidget extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 24),
+            /*
             const Text(
               'NFC PAYMENT CARD',
               style: TextStyle(
@@ -79,6 +80,7 @@ class CardDisplayWidget extends StatelessWidget {
                 letterSpacing: 2,
               ),
             ),
+            */
             const SizedBox(height: 8),
             Text(
               cardId,
@@ -97,6 +99,7 @@ class CardDisplayWidget extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    
                     const Text(
                       'CUSTOMER ID',
                       style: TextStyle(
@@ -104,6 +107,7 @@ class CardDisplayWidget extends StatelessWidget {
                         fontSize: 10,
                       ),
                     ),
+                    
                     const SizedBox(height: 4),
                     Text(
                       customerId,
@@ -114,11 +118,6 @@ class CardDisplayWidget extends StatelessWidget {
                       ),
                     ),
                   ],
-                ),
-                const Icon(
-                  Icons.nfc,
-                  color: Colors.white70,
-                  size: 36,
                 ),
               ],
             ),

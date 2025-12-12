@@ -19,21 +19,6 @@ class ModeSelectionScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Icon(
-                Icons.nfc,
-                size: 100,
-                color: Colors.deepPurple,
-              ),
-              const SizedBox(height: 24),
-              const Text(
-                'Select Mode',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 48),
               ElevatedButton.icon(
                 onPressed: () {
                   Navigator.push(
@@ -43,7 +28,10 @@ class ModeSelectionScreen extends StatelessWidget {
                     ),
                   );
                 },
-                icon: const Icon(Icons.point_of_sale, size: 32),
+                icon: const Icon(
+                  Icons.point_of_sale, 
+                  size: 32,
+                  color: Colors.white),
                 label: const Padding(
                   padding: EdgeInsets.symmetric(vertical: 16.0),
                   child: Text(
@@ -66,7 +54,10 @@ class ModeSelectionScreen extends StatelessWidget {
                     ),
                   );
                 },
-                icon: const Icon(Icons.credit_card, size: 32),
+                icon: const Icon(
+                  Icons.credit_card, 
+                  size: 32,
+                  color: Colors.white,),
                 label: const Padding(
                   padding: EdgeInsets.symmetric(vertical: 16.0),
                   child: Text(
