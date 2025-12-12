@@ -42,7 +42,7 @@
 
         <!-- HCE Service pour mode Client -->
         <service
-            android:name="im.nfc.flutter_nfc_hce.HostApduService"
+            android:name=".NfcHostApduService"
             android:exported="true"
             android:permission="android.permission.BIND_NFC_SERVICE">
             <intent-filter>
