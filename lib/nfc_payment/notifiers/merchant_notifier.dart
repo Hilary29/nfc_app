@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 import 'package:nfc_manager/platform_tags.dart';
 import 'package:uuid/uuid.dart';
-import '../models/payment_request.dart';
-import '../models/payment_response.dart';
-import '../models/transaction.dart';
+import '../data/models/payment_request.dart';
+import '../data/models/payment_response.dart';
+import '../data/models/transaction.dart';
 
 class MerchantNotifier extends ChangeNotifier {
   double _amount = 0.0;

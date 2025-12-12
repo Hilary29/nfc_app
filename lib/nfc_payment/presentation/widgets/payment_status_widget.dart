@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../core/models/transaction.dart';
-import '../../../core/models/payment_response.dart';
+import '../../data/models/transaction.dart';
+import '../../data/models/payment_response.dart';
 import 'package:intl/intl.dart';
 
 class PaymentStatusWidget extends StatelessWidget {

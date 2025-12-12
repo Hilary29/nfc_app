@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../core/notifiers/merchant_notifier.dart';
+import '../../notifiers/merchant_notifier.dart';
 import '../widgets/amount_input_widget.dart';
 import '../widgets/payment_token_display.dart';
 import '../widgets/payment_status_widget.dart';

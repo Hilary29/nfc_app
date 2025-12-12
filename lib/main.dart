@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nfc_app/features/mode_selection/mode_selection_screen.dart';
-import 'package:nfc_app/presentation/screen/read_write_nfc_screen.dart';
+import 'package:nfc_app/nfc_payment/presentation/screens/mode_selection_screen.dart';
+import 'package:nfc_app/nfc_read_write/presentation/screen/read_write_nfc_screen.dart';
 
 void main() {
   runApp(const MyApp());

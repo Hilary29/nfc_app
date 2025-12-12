@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../../../core/models/payment_request.dart';
+import '../../data/models/payment_request.dart';
 
 class PaymentApprovalWidget extends StatelessWidget {
   final PaymentRequest request;

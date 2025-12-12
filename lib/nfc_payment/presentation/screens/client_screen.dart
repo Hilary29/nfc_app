@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../core/notifiers/client_notifier.dart';
+import '../../notifiers/client_notifier.dart';
 import '../widgets/card_display_widget.dart';
 import '../widgets/payment_approval_widget.dart';
 

@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
-import '../models/payment_request.dart';
-import '../models/payment_response.dart';
+import '../data/models/payment_request.dart';
+import '../data/models/payment_response.dart';
 
 class ClientNotifier extends ChangeNotifier {
   bool _isHceActive = false;

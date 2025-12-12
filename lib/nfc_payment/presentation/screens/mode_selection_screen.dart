@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../merchant/screens/merchant_screen.dart';
-import '../client/screens/client_screen.dart';
+import 'merchant_screen.dart';
+import 'client_screen.dart';
 
 class ModeSelectionScreen extends StatelessWidget {
   const ModeSelectionScreen({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nfc_app/core/notifier/nfc_notifier.dart';
-import 'package:nfc_app/presentation/widgets/dialogs.dart';
+import 'package:nfc_app/nfc_read_write/nfc_notifier.dart';
+import 'package:nfc_app/nfc_read_write/presentation/widgets/dialogs.dart';
 import 'package:provider/provider.dart';
 
 class ReadWriteNFCScreen extends StatelessWidget {
