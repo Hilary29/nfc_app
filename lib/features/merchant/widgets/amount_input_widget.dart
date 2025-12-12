@@ -71,24 +71,12 @@ class _AmountInputWidgetState extends State<AmountInputWidget> {
                 FilteringTextInputFormatter.digitsOnly,
               ],
               decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.attach_money),
                 hintText: '0',
-                border: OutlineInputBorder(),
                 suffixText: 'FCFA',
               ),
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               onChanged: _onChanged,
             ),
-            if (widget.initialAmount > 0) ...[
-              const SizedBox(height: 8),
-              Text(
-                'Amount: ${_currencyFormat.format(widget.initialAmount)}',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey[600],
-                ),
-              ),
-            ],
           ],
         ),
       ),

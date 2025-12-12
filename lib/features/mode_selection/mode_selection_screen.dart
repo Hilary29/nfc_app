@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../merchant/screens/merchant_screen.dart';
+import '../client/screens/client_screen.dart';
 
 class ModeSelectionScreen extends StatelessWidget {
   const ModeSelectionScreen({super.key});
@@ -57,14 +58,25 @@ class ModeSelectionScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               ElevatedButton.icon(
-                onPressed: null,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ClientScreen(),
+                    ),
+                  );
+                },
                 icon: const Icon(Icons.credit_card, size: 32),
                 label: const Padding(
                   padding: EdgeInsets.symmetric(vertical: 16.0),
                   child: Text(
-                    'Client Mode (Coming Soon)',
+                    'Client Mode',
                     style: TextStyle(fontSize: 18),
                   ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  foregroundColor: Colors.white,
                 ),
               ),
               const SizedBox(height: 48),
