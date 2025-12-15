@@ -1,29 +1,25 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 import 'package:nfc_app/models/nfc_data.dart';
 import 'package:nfc_app/presentation/widgets/dialogs.dart';
 import 'package:nfc_app/presentation/widgets/nfc_data_card.dart';
-import 'package:nfc_app/presentation/widgets/nfc_write_form.dart';
 
-enum NFCOperation { read, write }
-
-class ReadWriteNFCScreen extends StatefulWidget {
-  const ReadWriteNFCScreen({super.key});
+class NfcReadScreen extends StatefulWidget {
+  const NfcReadScreen({super.key});
 
   @override
-  State<ReadWriteNFCScreen> createState() => _ReadWriteNFCScreenState();
+  State<NfcReadScreen> createState() => _NfcReadScreenState();
 }
 
-class _ReadWriteNFCScreenState extends State<ReadWriteNFCScreen> {
+class _NfcReadScreenState extends State<NfcReadScreen> {
   bool _isProcessing = false;
   String _message = "";
   NfcData? _lastReadData;
   String? _errorMessage;
 
-  Future<void> _startNFCOperation({required NFCOperation nfcOperation}) async {
+  Future<void> _startNFCReading() async {
     try {
       setState(() {
         _isProcessing = true;
@@ -35,9 +31,7 @@ class _ReadWriteNFCScreenState extends State<ReadWriteNFCScreen> {
       if (isAvail) {
         NfcManager.instance.startSession(
           onDiscovered: (NfcTag nfcTag) async {
-            if (nfcOperation == NFCOperation.read) {
-              await _readFromTag(tag: nfcTag);
-            }
+            await _readFromTag(tag: nfcTag);
             setState(() => _isProcessing = false);
             await NfcManager.instance.stopSession();
           },
@@ -94,57 +88,6 @@ class _ReadWriteNFCScreenState extends State<ReadWriteNFCScreen> {
     }
   }
 
-  Future<void> _writeJsonData(NfcData data) async {
-    try {
-      setState(() {
-        _isProcessing = true;
-        _message = "Écriture en cours";
-      });
-
-      bool isAvail = await NfcManager.instance.isAvailable();
-
-      if (isAvail) {
-        NfcManager.instance.startSession(
-          onDiscovered: (NfcTag nfcTag) async {
-            final jsonString = data.toJson();
-            final bytes = utf8.encode(jsonString);
-
-            NdefMessage message = NdefMessage([
-              NdefRecord.createMime(
-                'application/json',
-                Uint8List.fromList(bytes),
-              )
-            ]);
-
-            await Ndef.from(nfcTag)?.write(message);
-
-            setState(() {
-              _message = "Écriture réussie";
-              _isProcessing = false;
-            });
-            await NfcManager.instance.stopSession();
-          },
-          onError: (e) async {
-            setState(() {
-              _isProcessing = false;
-              _message = "Erreur: ${e.toString()}";
-            });
-          },
-        );
-      } else {
-        setState(() {
-          _isProcessing = false;
-          _message = "Veuillez activer le NFC";
-        });
-      }
-    } catch (e) {
-      setState(() {
-        _isProcessing = false;
-        _message = "Erreur: ${e.toString()}";
-      });
-    }
-  }
-
   void _clearLastRead() {
     setState(() {
       _lastReadData = null;
@@ -154,10 +97,16 @@ class _ReadWriteNFCScreenState extends State<ReadWriteNFCScreen> {
   }
 
   @override
+  void dispose() {
+    NfcManager.instance.stopSession();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("NFC JSON Reader/Writer"),
+        title: const Text("Lecture NFC"),
         actions: [
           if (_lastReadData != null)
             IconButton(
@@ -179,23 +128,18 @@ class _ReadWriteNFCScreenState extends State<ReadWriteNFCScreen> {
             else
               const EmptyStateCard(),
             const SizedBox(height: 24),
-            NfcWriteForm(
-              onWrite: (data) {
-                scanningDialog(context);
-                _writeJsonData(data);
-              },
-            ),
-            const SizedBox(height: 24),
             ElevatedButton.icon(
-              onPressed: () {
-                scanningDialog(context);
-                _startNFCOperation(nfcOperation: NFCOperation.read);
-              },
+              onPressed: _isProcessing
+                  ? null
+                  : () {
+                      scanningDialog(context);
+                      _startNFCReading();
+                    },
               icon: const Icon(Icons.nfc),
               label: const Text("LIRE NFC"),
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 16),
-                backgroundColor: Colors.deepPurple,
+                backgroundColor: Colors.green.shade700,
                 foregroundColor: Colors.white,
               ),
             ),
