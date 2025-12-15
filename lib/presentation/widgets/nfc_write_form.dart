@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nfc_app/core/models/nfc_data.dart';
+import 'package:nfc_app/models/nfc_data.dart';
 
 class NfcWriteForm extends StatefulWidget {
   final Function(NfcData) onWrite;

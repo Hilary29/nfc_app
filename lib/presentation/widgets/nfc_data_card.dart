@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:nfc_app/core/models/nfc_data.dart';
+import 'package:nfc_app/models/nfc_data.dart';
 import 'package:intl/intl.dart';
 
 class NfcDataCard extends StatelessWidget {
