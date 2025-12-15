@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nfc_app/core/notifier/nfc_notifier.dart';
+import 'package:nfc_app/core/notifiers/nfc_notifier.dart';
 import 'package:nfc_app/presentation/widgets/dialogs.dart';
 import 'package:nfc_app/presentation/widgets/nfc_data_card.dart';
 import 'package:nfc_app/presentation/widgets/nfc_write_form.dart';
