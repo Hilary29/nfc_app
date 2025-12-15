@@ -12,33 +12,11 @@ void scanningDialog(BuildContext context) {
           children: [
             CircularProgressIndicator(),
             SizedBox(height: 16),
-            Text('Please wait...'),
+            Text('Veuillez approcher le tag NFC...'),
           ],
         ),
       );
     },
   );
 }
-
-void showResultDialog(BuildContext context, String message) {
-  showDialog(
-    context: context,
-    barrierDismissible: false,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: const Text('Result'),
-        content: Text(message),
-        actions: [
-          ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: const Text('OK'),
-          ),
-        ],
-      );
-    },
-  );
-}
-
 
