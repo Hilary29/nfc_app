@@ -47,7 +47,6 @@ class _NfcWriteFormState extends State<NfcWriteForm> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
       margin: const EdgeInsets.all(16),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -56,18 +55,11 @@ class _NfcWriteFormState extends State<NfcWriteForm> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Text(
-                'Écrire des Données',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
               const SizedBox(height: 16),
               TextFormField(
                 controller: _senderController,
                 decoration: const InputDecoration(
-                  labelText: 'Expéditeur',
+                  labelText: 'Auteur',
                   border: OutlineInputBorder(),
                   prefixIcon: Icon(Icons.person),
                 ),

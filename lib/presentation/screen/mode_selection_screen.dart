@@ -9,7 +9,7 @@ class ModeSelectionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('NFC App'),
+        title: const Text('NFC POC'),
         centerTitle: true,
       ),
       body: Center(
