@@ -18,9 +18,9 @@ class NFCNotifier extends ChangeNotifier {
       _isProcessing = true;
       notifyListeners();
 
-      bool isAvail = await NfcManager.instance.isAvailable();
+      bool isNfcAvailable = await NfcManager.instance.isAvailable();
 
-      if (isAvail) {
+      if (isNfcAvailable) {
         if (nfcOperation == NFCOperation.read) {
           _message = "Scanning";
         } else if (nfcOperation == NFCOperation.write) {
