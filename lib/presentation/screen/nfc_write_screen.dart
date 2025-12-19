@@ -25,9 +25,9 @@ class _NfcWriteScreenState extends State<NfcWriteScreen> {
         _message = "Écriture en cours";
       });
 
-      bool isAvail = await NfcManager.instance.isAvailable();
+      bool isNfcAvailable = await NfcManager.instance.isAvailable();
 
-      if (isAvail) {
+      if (isNfcAvailable) {
         NfcManager.instance.startSession(
           onDiscovered: (NfcTag nfcTag) async {
             final jsonString = data.toJson();

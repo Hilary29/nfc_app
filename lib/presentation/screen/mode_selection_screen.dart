@@ -28,11 +28,6 @@ class ModeSelectionScreen extends StatelessWidget {
                     ),
                   );
                 },
-                icon: const Icon(
-                  Icons.nfc,
-                  size: 32,
-                  color: Colors.white,
-                ),
                 label: const Padding(
                   padding: EdgeInsets.symmetric(vertical: 16.0),
                   child: Text(
@@ -63,11 +58,6 @@ class ModeSelectionScreen extends StatelessWidget {
                     ),
                   );
                 },
-                icon: const Icon(
-                  Icons.edit,
-                  size: 32,
-                  color: Colors.white,
-                ),
                 label: const Padding(
                   padding: EdgeInsets.symmetric(vertical: 16.0),
                   child: Text(
