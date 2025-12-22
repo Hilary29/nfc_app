@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'merchant_screen.dart';
 import 'client_screen.dart';
+import '../../../nfc/presentation/screens/merchant_hce_screen.dart';
+import '../../../nfc/presentation/screens/client_nfc_reader_screen.dart';
 
 class ModeSelectionScreen extends StatelessWidget {
   const ModeSelectionScreen({super.key});
@@ -70,7 +72,73 @@ class ModeSelectionScreen extends StatelessWidget {
                   foregroundColor: Colors.white,
                 ),
               ),
-              const SizedBox(height: 48),
+              const SizedBox(height: 32),
+              const Divider(thickness: 2),
+              const SizedBox(height: 16),
+              const Text(
+                'New NDEF Mode',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey,
+                ),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MerchantHceScreen(),
+                    ),
+                  );
+                },
+                icon: const Icon(
+                  Icons.storefront,
+                  size: 32,
+                  color: Colors.white,
+                ),
+                label: const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  child: Text(
+                    'Merchant (HCE NDEF)',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.orange,
+                  foregroundColor: Colors.white,
+                ),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ClientNfcReaderScreen(),
+                    ),
+                  );
+                },
+                icon: const Icon(
+                  Icons.smartphone,
+                  size: 32,
+                  color: Colors.white,
+                ),
+                label: const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  child: Text(
+                    'Client (Reader NDEF)',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.teal,
+                  foregroundColor: Colors.white,
+                ),
+              ),
+              const SizedBox(height: 32),
               TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/demo');

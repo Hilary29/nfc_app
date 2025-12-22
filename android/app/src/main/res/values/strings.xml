@@ -2,4 +2,6 @@
 <resources>
     <string name="service_name">NFC Payment Service</string>
     <string name="card_title">Payment Card</string>
+    <string name="ndef_service_name">NFC NDEF Payment Service</string>
+    <string name="ndef_card_title">NDEF Payment Card</string>
 </resources>

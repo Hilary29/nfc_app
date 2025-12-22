@@ -46,6 +46,10 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>NFCReaderUsageDescription</key>
-	<string>This app uses NFC to scan NFC tags.</string>
+	<string>This app needs NFC to read payment information from merchant devices</string>
+	<key>com.apple.developer.nfc.readersession.formats</key>
+	<array>
+		<string>NDEF</string>
+	</array>
 </dict>
 </plist>
